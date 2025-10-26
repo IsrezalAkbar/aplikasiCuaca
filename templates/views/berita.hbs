@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{judul}}</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    {{>header}}
+    <div class="main-content">
+      <h1>{{judul}}</h1>
+      {{#if error}}
+        <p>{{error}}</p>
+      {{else}}
+        <div class="news-section">
+          {{#each berita}}
+            <div class="news-item">
+              <h3 class="news-title">{{this.judul}}</h3>
+              <p class="news-desc">{{this.deskripsi}}</p>
+              <a class="news-link" href="{{this.url}}" target="_blank">
+                Sumber: {{this.sumber}}
+              </a>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+    {{>footer}}
+  </body>
+</html>
